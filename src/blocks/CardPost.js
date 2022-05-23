@@ -5,17 +5,28 @@ const InnerArticle = styled.article`
     max-width: 450px;
     border-radius: 12px;
     overflow: hidden;
-    background-color: ${props => (props.theme && props.theme.colors && props.theme.colors.background) || 'var(--secondary-color)'};;
-    color: ${props => (props.theme && props.theme.colors && props.theme.colors.text) || 'var(--primary-color)'};
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e6e6e6;
-
+    position: relative;
+    & h3 {
+        color: var(--primary-color);
+    }
     & img {
         display: block;
         max-width: 100%;
     }
+    & a {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background-color: var(--secondary-color);
+        padding: 16px 10px;
+        text-align: center;
+        display: block;
+        width: 100%;
+    }
     div {
-        padding: 15px 20px;
+        background-color: #FFF;
+        padding: 15px 20px 60px;
     }
 `
 
@@ -26,9 +37,9 @@ const CardPost = ({ article }) => {
                 <img src={article.social_image} alt="Post" />
             </figure>
             <div>
-                <h3>{article.title}</h3>
-                <a href={article.url}>Leer más</a>
+                <h3>{article.description}</h3>
             </div>
+            <a href={article.url}>LEER MÁS</a>
         </InnerArticle>
     )
 }

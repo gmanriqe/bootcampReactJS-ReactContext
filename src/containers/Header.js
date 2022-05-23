@@ -1,14 +1,28 @@
-
-import { useContext } from 'react'
 import styled from 'styled-components'
+import { useContext } from 'react'
 import StyledSpan from '../elements/StyledSpan'
 import CircleImage from '../elements/CircleImage'
-import { PrimaryButtonStyle, LinkPrimaryButtonStyle, LinkSecondaryButtonStyle } from '../collections/buttons'
 import Container from '../elements/Container'
-import { UserContext } from '../context/UserContent'
+import { PrimaryButtonStyle, LinkPrimaryButtonStyle, LinkSecondaryButtonStyle } from '../collections/buttons'
+import { UserContext } from '../context/UserContext'
+
+const Row = styled.ul`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 16px 0;
+`;
+
+const ContentArea = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+`
 
 const Header = ({ className }) => {
-    let articlesFromDevto = useContext(UserContext)
+    let [user] = useContext(UserContext)
+
     return (
         <header className={className}>
             <Container>
@@ -20,9 +34,9 @@ const Header = ({ className }) => {
                         </h1>
                         <Row>
                             <li><PrimaryButtonStyle>MIS PROYECTOS</PrimaryButtonStyle></li>
-                            <li><LinkPrimaryButtonStyle href="" target="_self">DESCARGAR CV</LinkPrimaryButtonStyle></li>
+                            <li><LinkPrimaryButtonStyle href="/pdf/cv_jesusgonzales.pdf" download>DESCARGAR CV</LinkPrimaryButtonStyle></li>
                         </Row>
-                        <LinkSecondaryButtonStyle>O LEE MIS ARTÍCULOS ({articlesFromDevto.length})</LinkSecondaryButtonStyle>
+                        <LinkSecondaryButtonStyle>O LEE MIS ARTÍCULOS '{user.articlesFromDevto.length}'</LinkSecondaryButtonStyle>
                     </div>
                     <figure>
                         <CircleImage src="/img/avatar.jpeg" alt="Jesús Gonzales" />
@@ -36,17 +50,7 @@ const Header = ({ className }) => {
 export default styled(Header)`
     padding: 63px 0;
     background: var(--primary-color);
-`
-
-const Row = styled.ul`
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem
-`;
-
-const ContentArea = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+    & h1 {
+        color: var(--color-white);
+    }
 `

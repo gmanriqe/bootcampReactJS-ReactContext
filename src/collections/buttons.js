@@ -26,15 +26,27 @@ const LinkPrimaryButtonStyle = styled.a`
     border: 2px solid var(--secondary-color)
 `
 
-const LinkSecondaryButtonStyle = styled.p`
+const LinkSecondaryButtonStyle = styled.a`
+    cursor: pointer;
     color: var(--color-white);
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
     display: block;
+`
+
+const LinkTertearyButtonStyle = styled.a`
+    cursor: pointer;
+    color: ${props => (props.theme.colors && props.theme.colors.color_)};
     font-weight: bold;
     margin-top: 0.5em;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
 `
 
 export { 
     PrimaryButtonStyle,
     LinkPrimaryButtonStyle,
-    LinkSecondaryButtonStyle
+    LinkSecondaryButtonStyle,
+    LinkTertearyButtonStyle
 }
