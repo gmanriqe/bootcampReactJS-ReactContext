@@ -26,7 +26,15 @@ const LinkPrimaryButtonStyle = styled.a`
     border: 2px solid var(--secondary-color)
 `
 
+const LinkSecondaryButtonStyle = styled.p`
+    color: var(--color-white);
+    display: block;
+    font-weight: bold;
+    margin-top: 0.5em;
+`
+
 export { 
     PrimaryButtonStyle,
-    LinkPrimaryButtonStyle
+    LinkPrimaryButtonStyle,
+    LinkSecondaryButtonStyle
 }

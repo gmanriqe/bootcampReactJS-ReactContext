@@ -24,7 +24,6 @@ body {
   color: var(--color-white);
   font-size: inherit;
   line-height: 28px;
-  background: var(--primary-color);
   font-family: 'Lato', sans-serif;
 }
 
@@ -71,7 +70,7 @@ h6 {
 
 p {
   line-height: 1.5;
-  margin: 0 0 1.5 0;
+  margin: 0;
 }
 
 ul {

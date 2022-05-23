@@ -1,16 +1,17 @@
-import './App.css';
 import Header from './containers/Header'
-import Container from './elements/Container';
+import Section from './containers/Section';
+import { UserProvider } from './context/UserContent';
 import GlobalsStyles from './globals/GlobalsStyles'
 const App = () => {
 
 	return (
-		<Container>
-			<GlobalsStyles />
-			<Header>
-
-			</Header>
-		</Container>
+		<div>
+			<UserProvider>
+				<GlobalsStyles />
+				<Header></Header>
+				<Section theme={{ colors: { background: "white", colors: "var(--primary-color)" } }}></Section>
+			</UserProvider>
+		</div>
 	);
 }
 
